@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Echo of the Veil | J. A. Jacobs</title>
+    <meta
+      name="description"
+      content="Official-style fantasy book website for The Echo of the Veil by J. A. Jacobs, a modern banshee fantasy."
+    >
+    <meta property="og:title" content="The Echo of the Veil by J. A. Jacobs">
+    <meta
+      property="og:description"
+      content="A modern banshee fantasy about warnings, echoes, and the thin places between worlds."
+    >
+    <meta property="og:image" content="echo-of-the-veil-cover.jpg">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Reusable SVG defs -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="sigil" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="32" cy="32" r="7" fill="none" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M32 9 L42 32 L32 55 L22 32 Z" fill="none" stroke="currentColor" stroke-width="0.7"/>
+          <path d="M9 32 L32 22 L55 32 L32 42 Z" fill="none" stroke="currentColor" stroke-width="0.7"/>
+          <g stroke="currentColor" stroke-width="0.6">
+            <line x1="32" y1="2" x2="32" y2="9"/>
+            <line x1="32" y1="55" x2="32" y2="62"/>
+            <line x1="2" y1="32" x2="9" y2="32"/>
+            <line x1="55" y1="32" x2="62" y2="32"/>
+          </g>
+        </symbol>
+        <symbol id="corner-flourish" viewBox="0 0 60 60">
+          <path d="M2 2 L24 2 M2 2 L2 24" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M2 2 Q30 8 30 30 M2 2 Q8 30 30 30" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.7"/>
+          <circle cx="30" cy="30" r="2" fill="currentColor"/>
+        </symbol>
+        <symbol id="brand-glyph" viewBox="0 0 40 40">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M20 4 L28 20 L20 36 L12 20 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="20" cy="20" r="3.5" fill="currentColor"/>
+        </symbol>
+        <symbol id="ico-veil" viewBox="0 0 32 32">
+          <path d="M4 6 Q16 14 28 6 L28 26 Q16 18 4 26 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        </symbol>
+        <symbol id="ico-banshee" viewBox="0 0 32 32">
+          <circle cx="16" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M6 30 Q16 18 26 30" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        </symbol>
+        <symbol id="ico-raven" viewBox="0 0 32 32">
+          <path d="M3 18 Q12 8 16 16 Q20 8 29 18 Q20 16 16 22 Q12 16 3 18 Z" fill="currentColor"/>
+        </symbol>
+        <symbol id="ico-cry" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="3.5" fill="currentColor"/>
+          <circle cx="16" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.7"/>
+          <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <div class="site-shell">
+      <header class="site-header" data-header>
+        <a class="brand" href="#top" aria-label="The Echo of the Veil home">
+          <span class="brand-mark" aria-hidden="true"><svg><use href="#brand-glyph"></use></svg></span>
+          <span>
+            <span class="brand-title">The Echo</span>
+            <span class="brand-subtitle">of the Veil</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Open navigation</span>
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#book">Book</a>
+          <a href="#excerpt">Excerpt</a>
+          <a href="#world">World</a>
+          <a href="#characters">Characters</a>
+          <a href="#author">Author</a>
+          <a href="#buy">Buy</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero section-frame">
+          <div class="section-bg" aria-hidden="true">
+            <img src="echo-of-the-veil-cover.jpg" alt="">
+          </div>
+          <div class="moon" aria-hidden="true"></div>
+          <span class="corner corner-tl" aria-hidden="true"><svg><use href="#corner-flourish"></use></svg></span>
+          <span class="corner corner-tr" aria-hidden="true"><svg><use href="#corner-flourish"></use></svg></span>
+          <span class="corner corner-bl" aria-hidden="true"><svg><use href="#corner-flourish"></use></svg></span>
+          <span class="corner corner-br" aria-hidden="true"><svg><use href="#corner-flourish"></use></svg></span>
+
+          <div class="hero-copy">
+            <p class="eyebrow">A modern banshee fantasy</p>
+            <h1>The Echo of the Veil</h1>
+            <p class="hero-author">J. A. Jacobs</p>
+            <p class="hero-lede">
+              Some warnings arrive as whispers. Some tear through the walls. When the Veil thins, the dead are not the only ones trying to be heard.
+            </p>
+            <div class="button-row">
+              <a class="button button-primary" href="https://www.amazon.com/Echo-Veil-J-Jacobs/dp/B0GYZ4T7Q2/" target="_blank" rel="noreferrer">
+                Buy on Amazon
+              </a>
+              <a class="button button-secondary" href="#excerpt">Read an Excerpt</a>
+            </div>
+          </div>
+
+          <div class="hero-cover-wrap" aria-label="Book cover">
+            <div class="cover-stage">
+              <img
+                class="book-cover hero-cover"
+                src="echo-of-the-veil-cover.jpg"
+                alt="Book cover for The Echo of the Veil by J. A. Jacobs"
+                width="326"
+                height="500"
+              >
+              <div class="cover-reflection" aria-hidden="true"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="quick-path reveal" aria-label="Reader starting points">
+          <a href="#book">
+            <span>Start Here</span>
+            <strong>Premise, themes, and content notes</strong>
+          </a>
+          <a href="#world">
+            <span>Explore the Veil</span>
+            <strong>Banshees, thresholds, ravens, and the cry</strong>
+          </a>
+          <a href="#buy">
+            <span>Choose an Edition</span>
+            <strong>Paperback, ebook, and audiobook links</strong>
+          </a>
+        </section>
+
+        <section class="book-section section-grid reveal" id="book">
+          <div class="section-kicker">About the Book</div>
+          <div class="section-heading">
+            <h2>The scream is not a curse. It is a warning.</h2>
+            <p>
+              The site is structured for fantasy readers who need a fast entry point: what the story is, what kind of magic it uses, and where to buy or keep reading.
+            </p>
+          </div>
+
+          <div class="feature-panel premise-panel">
+            <div>
+              <h3>The Premise</h3>
+              <p>
+                In a city where the Veil between worlds is thin, some are born to hear what others cannot. When the screams begin, it is not just the dead who take notice.
+              </p>
+            </div>
+            <div class="sigil-orbit" aria-hidden="true">
+              <span class="ring ring-outer"><svg><use href="#sigil"></use></svg></span>
+              <span class="ring ring-inner"><svg><use href="#sigil"></use></svg></span>
+              <span class="core"></span>
+            </div>
+          </div>
+
+          <div class="feature-panel notes-panel">
+            <h3>Modern Banshees</h3>
+            <p>
+              Banshees are framed as messengers and threshold-keepers, not monsters. Their power is warning, memory, grief, and choice.
+            </p>
+          </div>
+
+          <div class="feature-panel themes-panel">
+            <h3>Themes</h3>
+            <ul class="clean-list">
+              <li><span>01</span> Identity and power</li>
+              <li><span>02</span> The seen and the unseen</li>
+              <li><span>03</span> Grief and connection</li>
+              <li><span>04</span> Choice and consequence</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="line"></span>
+          <svg class="sigil"><use href="#sigil"></use></svg>
+          <span class="line"></span>
+        </div>
+
+        <section class="excerpt section-frame reveal" id="excerpt">
+          <div class="section-bg subtle" aria-hidden="true">
+            <img src="echo-of-the-veil-cover.jpg" alt="">
+          </div>
+          <div class="excerpt-copy">
+            <p class="eyebrow">Read an Excerpt</p>
+            <h2>Chapter One</h2>
+            <div class="waveform" aria-hidden="true">
+              <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+                <path d="M0 20 Q5 20 10 14 T20 20 T30 8 T40 20 T50 26 T60 20 T70 4 T80 20 T90 30 T100 20 T110 12 T120 20 T130 2 T140 20 T150 28 T160 20 T170 10 T180 20 T190 24 T200 20 T210 14 T220 20 T230 6 T240 20 T250 30 T260 20 T270 12 T280 20 T290 4 T300 20 T310 26 T320 20 T330 16 T340 20 T350 8 T360 20 T370 28 T380 20 T390 14 T400 20"
+                      fill="none" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <blockquote>
+              The first scream came through the walls.
+            </blockquote>
+            <p>
+              It was late, too late, and the city had already learned how to be quiet. Rain sealed the windows. My phone screen glowed on the counter, the only sound in the apartment a low, trembling hum.
+            </p>
+            <p>
+              Then it came again. A thin, tearing sound. Distant. Wrong.
+            </p>
+            <a class="button button-secondary" href="#buy" style="margin-top:30px;display:inline-flex">Continue with the Book</a>
+          </div>
+
+          <aside class="purchase-card">
+            <img
+              class="book-cover"
+              src="echo-of-the-veil-cover.jpg"
+              alt="The Echo of the Veil cover"
+              width="326"
+              height="500"
+            >
+            <h3>The Echo of the Veil</h3>
+            <p>J. A. Jacobs</p>
+            <a class="button button-primary" href="https://www.amazon.com/Echo-Veil-J-Jacobs/dp/B0GYZ4T7Q2/" target="_blank" rel="noreferrer">
+              Buy on Amazon
+            </a>
+          </aside>
+        </section>
+
+        <section class="world-section reveal" id="world">
+          <div class="section-kicker">World of the Veil</div>
+          <div class="section-heading">
+            <h2>Places where the Veil thins.</h2>
+            <p>
+              Built like an active fantasy hub, this section gives readers the lore hooks they expect without forcing them through a wall of exposition.
+            </p>
+          </div>
+
+          <div class="map-panel">
+            <div class="map-city" aria-hidden="true">
+              <span class="pin pin-a"></span>
+              <span class="pin pin-b"></span>
+              <span class="pin pin-c"></span>
+              <span class="pin pin-d"></span>
+            </div>
+            <div class="map-copy">
+              <h3>Explore the Map</h3>
+              <p>Threshold sites, raven sightings, old crossings, and places where the living world goes quiet.</p>
+            </div>
+          </div>
+
+          <div class="lore-grid">
+            <article>
+              <svg class="lore-icon"><use href="#ico-veil"></use></svg>
+              <h3>The Veil</h3>
+              <p>The boundary between the living world and what waits beyond it.</p>
+            </article>
+            <article>
+              <svg class="lore-icon"><use href="#ico-banshee"></use></svg>
+              <h3>Banshees</h3>
+              <p>Voices of warning. Messengers of change. Keepers of the threshold.</p>
+            </article>
+            <article>
+              <svg class="lore-icon"><use href="#ico-raven"></use></svg>
+              <h3>Ravens</h3>
+              <p>Watchers and guides whose presence is never coincidence.</p>
+            </article>
+            <article>
+              <svg class="lore-icon"><use href="#ico-cry"></use></svg>
+              <h3>The Cry</h3>
+              <p>A call, a warning, and a promise carried across worlds.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="line"></span>
+          <svg class="sigil"><use href="#sigil"></use></svg>
+          <span class="line"></span>
+        </div>
+
+        <section class="characters section-grid reveal" id="characters">
+          <div class="section-kicker">Character Guide</div>
+          <div class="section-heading">
+            <h2>Maeve walks the line between worlds.</h2>
+            <p>
+              A spoiler-safe guide layout gives readers a place to learn names, factions, and relationships while keeping the book itself central.
+            </p>
+          </div>
+
+          <article class="character-hero">
+            <div>
+              <p class="eyebrow">The Banshee</p>
+              <h3>Maeve</h3>
+              <p>
+                Haunted by a scream she cannot remember, Maeve carries echoes of the lost and the power to change what comes next.
+              </p>
+            </div>
+            <img
+              class="book-cover small-cover"
+              src="echo-of-the-veil-cover.jpg"
+              alt="The Echo of the Veil cover featuring Maeve"
+              width="326"
+              height="500"
+            >
+          </article>
+
+          <div class="relationship-panel">
+            <h3>Relationships</h3>
+            <ul class="clean-list">
+              <li><span>Trusts</span> Darian Vale</li>
+              <li><span>Partners in investigation</span> Lena Mori</li>
+              <li><span>Haunted by</span> Ellius</li>
+              <li><span>Seeks answers from</span> The Archivist</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="author-events reveal" id="author">
+          <div class="author-panel">
+            <div>
+              <p class="eyebrow">The Author</p>
+              <h2>J. A. Jacobs</h2>
+              <p>
+                Author of <em>The Echo of the Veil</em>. This page keeps the biography compact and practical, with room for notes, media materials, and event updates.
+              </p>
+            </div>
+            <form class="newsletter-form" data-newsletter novalidate>
+              <label for="email">Join the Veil List</label>
+              <div class="form-row">
+                <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                <button class="button button-primary" type="submit">Join</button>
+              </div>
+              <p class="form-message" data-form-message>Get launch updates and reader extras.</p>
+            </form>
+          </div>
+
+          <div class="event-strip">
+            <article>
+              <span>Launch Updates</span>
+              <h3>Cover reveal, excerpts, and book news</h3>
+            </article>
+            <article>
+              <span>Reader Kit</span>
+              <h3>Discussion prompts and shareable assets</h3>
+            </article>
+            <article>
+              <span>Media Kit</span>
+              <h3>Author bio, book details, and press materials</h3>
+            </article>
+          </div>
+        </section>
+
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="line"></span>
+          <svg class="sigil"><use href="#sigil"></use></svg>
+          <span class="line"></span>
+        </div>
+
+        <section class="buy-section section-frame reveal" id="buy">
+          <div class="section-bg" aria-hidden="true">
+            <img src="echo-of-the-veil-cover.jpg" alt="">
+          </div>
+          <div class="buy-cover">
+            <img
+              class="book-cover"
+              src="echo-of-the-veil-cover.jpg"
+              alt="The Echo of the Veil book cover by J. A. Jacobs"
+              width="326"
+              height="500"
+            >
+          </div>
+          <div class="buy-copy">
+            <p class="eyebrow">Buy the Book</p>
+            <h2>The Echo of the Veil</h2>
+            <p class="hero-author">J. A. Jacobs</p>
+            <div class="edition-tabs" aria-label="Available formats">
+              <button type="button" class="active">Paperback</button>
+              <button type="button">eBook</button>
+              <button type="button">Audiobook</button>
+            </div>
+            <p>
+              Use the Amazon button for the live listing. Other retailer buttons are placeholders that can be wired once the author has final links.
+            </p>
+            <div class="retailer-grid">
+              <a class="button button-primary" href="https://www.amazon.com/Echo-Veil-J-Jacobs/dp/B0GYZ4T7Q2/" target="_blank" rel="noreferrer">
+                Amazon
+              </a>
+              <a class="button button-secondary" href="#" aria-disabled="true">Bookshop</a>
+              <a class="button button-secondary" href="#" aria-disabled="true">Barnes & Noble</a>
+              <a class="button button-secondary" href="#" aria-disabled="true">Indie Retailer</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p class="footer-quote">"Some echoes are meant to be heard."</p>
+        <div class="footer-meta">
+          <p>The Echo of the Veil by J. A. Jacobs</p>
+          <p>Static GitHub Pages-ready website concept. Replace placeholder copy and inactive retailer links before publishing.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
