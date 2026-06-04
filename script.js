@@ -1,9 +1,17 @@
+// ============================================================================
+// SHARED SCRIPT FOR ALL PAGES
+// This script handles: navigation, newsletter forms, contact forms,
+// scroll reveals, particles, and interactive elements.
+// ============================================================================
+
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const newsletter = document.querySelector("[data-newsletter]");
 const message = document.querySelector("[data-form-message]");
 const editionButtons = document.querySelectorAll(".edition-tabs button");
+const contactForm = document.querySelector("[data-contact]");
+const contactMessage = document.querySelector("[data-contact-message]");
 
 if (navToggle && header) {
   navToggle.addEventListener("click", () => {
@@ -45,6 +53,37 @@ editionButtons.forEach((button) => {
     button.classList.add("active");
   });
 });
+
+// Contact form handler (for contact.html)
+if (contactForm && contactMessage) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const messageText = formData.get("message");
+
+    contactMessage.classList.remove("error", "success");
+
+    if (!name || !email || !messageText) {
+      contactMessage.textContent = "Please fill in all required fields.";
+      contactMessage.classList.add("error");
+      return;
+    }
+
+    if (!String(email).includes("@")) {
+      contactMessage.textContent = "Please enter a valid email address.";
+      contactMessage.classList.add("error");
+      return;
+    }
+
+    // Static demo - in production, wire this to a form service like Formspree, Netlify Forms, etc.
+    contactMessage.textContent = "Thanks for your message! This static demo captured the interaction locally.";
+    contactMessage.classList.add("success");
+    form.reset();
+  });
+}
 
 // Scroll-triggered reveal animations
 const revealElements = document.querySelectorAll(".reveal");
