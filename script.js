@@ -7,11 +7,11 @@
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
-const newsletter = document.querySelector("[data-newsletter]");
-const message = document.querySelector("[data-form-message]");
+const newsletterForms = document.querySelectorAll("[data-newsletter]");
 const editionButtons = document.querySelectorAll(".edition-tabs button");
 const contactForm = document.querySelector("[data-contact]");
 const contactMessage = document.querySelector("[data-contact-message]");
+const mailchimpPlaceholderPattern = /YOUR-ACCOUNT|YOUR_U_VALUE|YOUR_AUDIENCE_ID|usXX/;
 
 if (navToggle && header) {
   navToggle.addEventListener("click", () => {
@@ -27,25 +27,81 @@ if (navToggle && header) {
   });
 }
 
-if (newsletter && message) {
-  newsletter.addEventListener("submit", (event) => {
+function getMailchimpJsonpUrl(actionUrl, email) {
+  const url = new URL(actionUrl);
+  url.pathname = url.pathname.replace("/subscribe/post", "/subscribe/post-json");
+  url.searchParams.set("EMAIL", email);
+  return url;
+}
+
+function submitToMailchimp(actionUrl, email) {
+  return new Promise((resolve, reject) => {
+    const callbackName = `mailchimpCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+    const url = getMailchimpJsonpUrl(actionUrl, email);
+    const script = document.createElement("script");
+
+    url.searchParams.set("c", callbackName);
+
+    window[callbackName] = (response) => {
+      delete window[callbackName];
+      script.remove();
+      resolve(response);
+    };
+
+    script.onerror = () => {
+      delete window[callbackName];
+      script.remove();
+      reject(new Error("Mailchimp request failed"));
+    };
+
+    script.src = url.toString();
+    document.body.appendChild(script);
+  });
+}
+
+newsletterForms.forEach((newsletter) => {
+  const message = newsletter.querySelector("[data-form-message]");
+
+  if (!message) return;
+
+  newsletter.addEventListener("submit", async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const email = new FormData(form).get("email");
+    const email = String(new FormData(form).get("email") || "").trim();
+    const actionUrl = form.getAttribute("action") || "";
 
     message.classList.remove("error", "success");
 
-    if (!email || !String(email).includes("@")) {
+    if (!email || !email.includes("@")) {
       message.textContent = "Enter a valid email address before joining.";
       message.classList.add("error");
       return;
     }
 
-    message.textContent = "Thanks. This static demo captured the interaction locally.";
-    message.classList.add("success");
-    form.reset();
+    if (!actionUrl || mailchimpPlaceholderPattern.test(actionUrl)) {
+      message.textContent = "Newsletter signup is almost ready. Add the Mailchimp form URL to finish setup.";
+      message.classList.add("error");
+      return;
+    }
+
+    try {
+      message.textContent = "Joining...";
+      const response = await submitToMailchimp(actionUrl, email);
+      const isSuccess = response.result === "success";
+      const alreadySubscribed = /already subscribed/i.test(response.msg || "");
+
+      message.textContent = isSuccess || alreadySubscribed
+        ? "Thanks. Please check your inbox to confirm your subscription."
+        : (response.msg || "").replace(/^\d+\s*-\s*/, "") || "Something went wrong. Please try again.";
+      message.classList.add(isSuccess || alreadySubscribed ? "success" : "error");
+
+      if (isSuccess || alreadySubscribed) form.reset();
+    } catch (error) {
+      message.textContent = "Something went wrong. Please try again.";
+      message.classList.add("error");
+    }
   });
-}
+});
 
 editionButtons.forEach((button) => {
   button.addEventListener("click", () => {
