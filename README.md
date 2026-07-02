@@ -10,9 +10,8 @@ Multi-page static author website with dark fantasy aesthetic. GitHub Pages ready
 | `books.html` | Book catalog listing all titles |
 | `book-echo-of-the-veil.html` | Dedicated page for The Echo of the Veil |
 | `about.html` | Author biography |
-| `contact.html` | Contact form and info |
 | `styles.css` | Shared responsive styling |
-| `script.js` | Shared JS (nav, forms, reveals, particles) |
+| `script.js` | Shared JS (nav, newsletter, reveals, particles) |
 | `echo-of-the-veil-cover.jpg` | Book cover image |
 | `favicon.svg` | Site icon |
 
@@ -102,8 +101,7 @@ When creating new pages, copy these blocks and update the `nav-active` class.
 
 - **Colors**: Edit CSS variables in `:root` at top of `styles.css`
 - **Fonts**: Change `--display`, `--serif`, `--body` font stacks
-- **Newsletter**: Wire `data-newsletter` form to Mailchimp, ConvertKit, etc.
-- **Contact Form**: Wire `data-contact` form to Formspree, Netlify Forms, etc.
+- **Newsletter**: The `data-newsletter` forms are wired to Mailchimp.
 
 ---
 

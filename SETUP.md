@@ -59,15 +59,14 @@ The site newsletter forms now have Mailchimp-ready `action` placeholders in:
 
 - `index.html`
 - `about.html`
-- `contact.html`
 
-The current placeholder is:
+The current Mailchimp action is:
 
 ```html
-action="https://YOUR-ACCOUNT.usXX.list-manage.com/subscribe/post?u=YOUR_U_VALUE&amp;id=YOUR_AUDIENCE_ID"
+action="https://jajacobsauthor.us19.list-manage.com/subscribe/post?u=ad689e0655a81320a0ab4e6e4&amp;id=34e44cecb8&amp;f_id=00edc2e1f0"
 ```
 
-Replace that same placeholder in all three files with the real Mailchimp form action URL.
+If the audience ever changes, replace that same action URL in both newsletter forms.
 
 Steps in Mailchimp:
 

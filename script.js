@@ -9,8 +9,6 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const newsletterForms = document.querySelectorAll("[data-newsletter]");
 const editionButtons = document.querySelectorAll(".edition-tabs button");
-const contactForm = document.querySelector("[data-contact]");
-const contactMessage = document.querySelector("[data-contact-message]");
 const mailchimpPlaceholderPattern = /YOUR-ACCOUNT|YOUR_U_VALUE|YOUR_AUDIENCE_ID|usXX/;
 
 if (navToggle && header) {
@@ -109,37 +107,6 @@ editionButtons.forEach((button) => {
     button.classList.add("active");
   });
 });
-
-// Contact form handler (for contact.html)
-if (contactForm && contactMessage) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const messageText = formData.get("message");
-
-    contactMessage.classList.remove("error", "success");
-
-    if (!name || !email || !messageText) {
-      contactMessage.textContent = "Please fill in all required fields.";
-      contactMessage.classList.add("error");
-      return;
-    }
-
-    if (!String(email).includes("@")) {
-      contactMessage.textContent = "Please enter a valid email address.";
-      contactMessage.classList.add("error");
-      return;
-    }
-
-    // Static demo - in production, wire this to a form service like Formspree, Netlify Forms, etc.
-    contactMessage.textContent = "Thanks for your message! This static demo captured the interaction locally.";
-    contactMessage.classList.add("success");
-    form.reset();
-  });
-}
 
 // Scroll-triggered reveal animations
 const revealElements = document.querySelectorAll(".reveal");
